@@ -1,0 +1,31 @@
+/* DROPDOWN STYLES */
+.drop-down-button {
+    background-color: transparent;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 0;
+    height: 40px;
+    padding: 0 15px;
+}
+
+.drop-down-button:hover {
+    background-color: #0e6390;
+}
+
+.drop-down-menu-show {
+    border-radius: 0;
+}
+
+.drop-down-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.drop-down-icon {
+    margin-right: 10px;
+}
+
+.no-after::after {
+    display: none;
+}

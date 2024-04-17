@@ -1,0 +1,15 @@
+{
+    "name": "cabeceiradev/back-end",
+    "autoload": {
+        "psr-4": {
+            "Cabeceiradev\\BackEnd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Cabeceira",
+            "email": "gabrielcabeceira@gmail.com"
+        }
+    ],
+    "require": {}
+}
