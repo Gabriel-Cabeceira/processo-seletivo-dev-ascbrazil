@@ -12,6 +12,7 @@ import {
     FilterTitle,
     FilterForm,
 } from "./Home.styles";
+
 import {
     TableWrapper,
     Table,

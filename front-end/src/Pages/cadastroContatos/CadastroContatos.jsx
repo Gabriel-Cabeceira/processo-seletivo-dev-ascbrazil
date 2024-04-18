@@ -91,7 +91,7 @@ export const CadastroContatos = () => {
         // Verifica a segunda linha para detectar o delimitador dos dados (;)
         const dadosDelimitador = linhas[1].includes(',') ? ',' : ';';
     
-        // Verificar se há linhas de dados vazias
+        // Verifica se há linhas de dados vazias
         const dados = linhas.slice(1).map(linha => linha.trim().split(dadosDelimitador));
 
         // Lista que armazenará os números inválidos, se houverem
@@ -101,8 +101,10 @@ export const CadastroContatos = () => {
         for (let i = 0; i < totalLinhas; i++) {
             const dado = dados[i];
 
+
             if (dado && dado.length >= 8) {
                 
+                // Desestrutura o array dado, atribuindo cada elemento a uma variável correspondente.
                 let [nome, sobrenome, email, telefone, endereco, cidade, cep, dataNascimento] = dado;
         
                 // Limpa o número de telefone removendo caracteres especiais
@@ -117,6 +119,8 @@ export const CadastroContatos = () => {
                 // Verificar se o telefone tem o DDI 55
                 if (!telefone.startsWith('55')) {
                     console.error(`Erro: Telefone "${telefone}" inválido (número sem DDI 55).`);
+                    setNumerosInvalidos(true);
+                    return false;
                 }
             
                 // Verificar se o telefone é fixo ou móvel
@@ -180,6 +184,8 @@ export const CadastroContatos = () => {
             }
     
             // Lê o conteúdo do arquivo CSV
+
+            // Aqui eu crio uma instância de FileReader que é uma interface no navegador que permite que aplicativos web leiam o conteúdo de arquivos
             const reader = new FileReader();
             reader.onload = (e) => {
                 const conteudoCSV = e.target.result;
@@ -187,6 +193,7 @@ export const CadastroContatos = () => {
                 // Analisar o conteúdo do arquivo e validar os dados
                 const validated = validarCSV(conteudoCSV);
 
+                // Aqui, se não for validado, define o valor do input como uma string vazia, impedindo que o arquivo seja submetido mesmo assim
                 if(!validated) {
                     event.target.value = "";
                 }
